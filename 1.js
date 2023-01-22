@@ -7,7 +7,7 @@ async function getTrueUrl(url) {
             if (!e && response.statusCode == 200) {
                 resolve(response.req.path.split('/')[3]);  // aweme_id
             } else {
-                console.error(err);
+                console.error(e);
             }
         });
     });
@@ -17,7 +17,7 @@ async function getTrueUrl(url) {
             if (!e && response.statusCode == 200) {
                 resolve(JSON.parse(body)['aweme_detail']['video']['bit_rate'][0]['play_addr']['uri']);
             } else {
-                console.error(err);
+                console.error(e);
             }
         });
     });
@@ -38,7 +38,7 @@ async function getTrueUrl(url) {
                 // 此时响应体已包含视频，可直接另存为
                 // ...
             } else {
-                console.error(err);
+                console.error(e);
             }
         });
     });
